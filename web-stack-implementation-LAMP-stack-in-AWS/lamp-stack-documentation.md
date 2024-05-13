@@ -69,14 +69,15 @@ curl http://127.0.0.1:80
 ```
 ![Local URL](./images/apache-ubuntu-default-page-curl.png)
 
-__5.__ __Test with the public IP address if the Apache HTTP server can respond to request from the internet using the url on a browser.__
+__5.__ __To check if the Apache HTTP server can handle requests from the internet, use the public IP address and enter it into a web browser's URL field for testing.__
 ```
 http://35.178.185.57:80
 ```
 ![Apache Default Page](./images/apache-ubuntu-default-page-browser.png)
-This shows that the web server is correctly installed and it is accessible throuhg the firewall.
 
-__6.__ __Another way to retrieve the public ip address other than check the aws console__
+This shows that the web server has been successfully installed and can be reached despite the firewall restrictions.
+
+__6.__ __Another method for obtaining the public IP address besides checking the AWS console.__
 ```
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
 ```
@@ -86,13 +87,15 @@ curl -s http://169.254.169.254/latest/meta-data/public-ipv4
 
 __1.__ __Install a relational database (RDB)__
 
-MySQL was installed in this project. It is a popular relational database management system used within PHP environments.
+MySQL was installed in this project, serving as a widely utilized relational database management system frequently employed in PHP environments.
+
 ```
 sudo apt install mysql-server
 ```
 ![Install MySQL-1](./images/install-mysql-1.png)
 ![Install MySQL-2](./images/install-mysql-2.png)
-When prompted, install was confirmed by typing y and then Enter.
+
+When prompted, type the letter "y" on your keyboard. Press the "Enter" key to confirm the installation.
 
 __2.__ __Enable and verify that mysql is running with the commands below__
 ```
@@ -105,9 +108,11 @@ __3.__ __Log in to mysql console__
 ```
 sudo mysql
 ```
-This connects to the MySQL server as the administrative database user __root__ infered by the use of __sudo__ when running the command.
+This establishes a connection to the MySQL server using the administrative database user. 
 
-__4.__ __Set a password for root user using mysql_native_password as default authentication method.__
+Utilize the sudo command to grant your current user the capabilities of a root user.
+
+__4.__ __Set up a password for the root user with mysql_native_password as the default authentication method.__
 
 Here, the user's password was defined as "Admin123$"
 ```
@@ -122,22 +127,26 @@ exit
 
 __5.__ __Run an Interactive script to secure MySQL__
 
-The security script comes pre-installed with mysql. This script removes some insecure settings and lock down access to the database system.
+
+The security script is included with MySQL by default. It's designed to eliminate certain vulnerable configurations and restrict access to the database system.
+
 ```
 sudo mysql_secure_installation
 ```
 ![MYSQL secure installation-1](./images/mysql-secure-installation-1.png)
 ![MYSQL secure installation-2](./images/mysql-secure-installation-2.png)
 
-Regardless of whether the VALIDATION PASSWORD PLUGIN is set up, the server will ask to select and confirm a password for MySQL root user.
+Regardless of whether the VALIDATION PASSWORD PLUGIN is configured, the server will prompt for the selection and confirmation of a password for the MySQL root user.
 
 __6.__ __After changing root user password, log in to MySQL console.__
 
-A command prompt for password was noticed after running the command below.
+A password prompt appeared in the command line interface following the execution of the command below.
+
 ```
 sudo mysql -p
 ```
 ![](./images/access-mysql-with-password.png)
+
 Exit MySQL shell
 ```
 exit
@@ -147,13 +156,14 @@ exit
 ## Step 3 - Install PHP
 
 __1.__ __Install php__
-Apache is installed to serve the content and MySQL is installed to store and manage data.
+Apache is installed to serve the content while MySQL is installed to store and manage data.
 PHP is the component of the set up that processes code to display dynamic content to the end user.
 
 The following were installed:
 - php package
 - php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases.
 - libapache2-mod-php, to enable Apache to handle PHP files.
+
 ```
 sudo apt install php libapache2-mod-php php-mysql
 ```
@@ -167,7 +177,7 @@ php -v
 ![Confirm php version](./images/confirm-php-installation.png)
 At this point, the LAMP stack is completely installed and fully operational.
 
-To tset the set up with a PHP script, it's best to set up a proper Apache Virtual Host to hold the website files and folders. Virtual host allows to have multiple websites located on a single machine and it won't be noticed by the website users.
+To test the setup with a PHP script, it's best to set up a proper Apache Virtual Host to hold the website files and folders. A Virtual Host allows for multiple websites to be located on a single machine without being noticed by the website users.
 
 ## Step 4 - Create a virtual host for the website using Apache
 
@@ -254,12 +264,11 @@ http://35.178.185.57:80
 ```
 ![URL public IP](./images/index-html-website.png)
 
-This file can be left in place as a temporary landing page for the application until an index.php file is set up to replace it. Once this is done, the index.html file should be renamed or removed from the document root as it will take precedence over index.php file by default.
+This file can serve as a temporary landing page for the application until an index.php file is set up to replace it. Once this is done, the index.html file should be renamed or removed from the document root, as it will take precedence over the index.php file by default.
 
 ## Step 5 - Enable PHP on the website
 
-With the default DirectoryIndex setting on Apache, index.html file will always take precedence over index.php file. This is useful for setting up maintenance page in PHP applications, by creating a temporary index.html file containing an informative message for visitors. The index.html then becomes the landing page for the application. Once maintenance is over, the index.html is renamed or removed from the document root bringing back the regular application page.
-If the behaviour needs to be changed, /etc/apache2/mods-enabled/dir.conf file should be edited and the order in which the index.php file is listed within the DirectoryIndex directive should be changed.
+With the default DirectoryIndex setting on Apache, the index.html file will always take precedence over the index.php file. This is useful for setting up a maintenance page in PHP applications by creating a temporary index.html file containing an informative message for visitors. The index.html then becomes the landing page for the application. Once maintenance is over, the index.html is renamed or removed from the document root, bringing back the regular application page. If the behavior needs to be changed, the /etc/apache2/mods-enabled/dir.conf file should be edited, and the order in which the index.php file is listed within the DirectoryIndex directive should be changed.
 
 __1.__ __Open the dir.conf file with vim to change the behaviour__
 ```
@@ -304,9 +313,10 @@ __4.__ __Now refresh the page__
 
 ![PHP page](./images/server-info-php.png)
 
-This page provides information about the server from the perspective of PHP. It is useful for debugging and to ensure the settings are being applied correctly.
+This page provides information about the server from the perspective of PHP. It is useful for debugging and ensuring that the settings are being applied correctly.
 
-After checking the relevant information about the server through this page, It’s best to remove the file created as it contains sensitive information about the PHP environment and the ubuntu server. It can always be recreated if the information is needed later.
+After reviewing the relevant information about the server on this page, it's best to delete the created file as it contains sensitive details about the PHP environment and the Ubuntu server. The file can always be recreated if the information is needed later.
+
 ```
 sudo rm /var/www/projectlamp/index.php
 ```
@@ -314,4 +324,5 @@ sudo rm /var/www/projectlamp/index.php
 
 __Conclusion:__
 
-The LAMP stack provides a robust and flexible platform for developing and deploying web applications. By following the guidelines outlined in this documentation, It was possible to set up, configure, and maintain a LAMP environment effectively, enabling the creation of powerful and scalable web solutions.
+The LAMP stack offers a sturdy and adaptable framework for creating and launching web applications. By adhering to the instructions provided in this guide, we were able to establish, adjust, and manage a LAMP setup efficiently. This facilitated the development of potent and expandable web solutions.
+
