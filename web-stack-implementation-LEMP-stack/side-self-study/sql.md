@@ -48,7 +48,7 @@ WHERE name = ‘Anna’;
 ### 4. GROUP BY
 
 **GROUP BY** statement arranges rows with identical values into summarized rows, commonly employed alongside aggregate functions. 
-For instance, in the following script below, **"Groups BY"** statement will group the rows based on the "first_name" column. This means that all rows with the same first_name will be grouped together, and the average age will be calculated for each group separately.
+For instance, in the following script below, **"Groups BY"** statement will group the rows based on the **"first_name"** column. This means that all rows with the same first_name will be grouped together, and the average age will be calculated for each group separately.
 
 ```sql
 SELECT first_name, AVG(age)
