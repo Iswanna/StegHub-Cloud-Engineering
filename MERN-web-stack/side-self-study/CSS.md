@@ -15,7 +15,7 @@ CSS, or Cascading Style Sheets, is a language used to describe the presentation 
 CSS rules are composed of selectors and declarations. 
 
 Here's a simple example:
-```
+```bash
 selector {
   property: value;
 }
@@ -28,39 +28,39 @@ selector {
 
 ## Common Properties
 1. **Color**: Sets the color of text.
-```
+```bash
 p {
   color: blue;
 }
 ```
 2. **Font**: Specifies font-related properties.
-```
+```bash
 h1 {
   font-family: Arial, sans-serif;
   font-size: 24px;
 }
 ```
 3. **Background**: Defines background properties.
-```
+```bash
 body {
   background-color: #f0f0f0;
 }
 ```
 4. **Margin and Padding**: Controls space around and inside elements.
-```
+```bash
 div {
   margin: 20px;
   padding: 10px;
 }
 ```
 5. **Borders**: Sets border properties.
-```
+```bash
 img {
   border: 2px solid black;
 }
 ```
 6. **Layout**: Utilizes properties like *display*, *flex*, and *grid* for complex layouts.
-```
+```bash
 .container {
   display: flex;
   justify-content: space-between;
