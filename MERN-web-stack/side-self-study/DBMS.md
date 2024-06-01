@@ -14,12 +14,12 @@ A database is a structured collection of related data that is stored and organiz
 A Database Management System (DBMS) is software that interacts with the user, applications, and the database itself to capture and analyze data. A DBMS allows users to create, read, update, and delete data in a database. It serves as an interface between the database and its users or applications, ensuring that data is consistently organized and remains easily accessible.
 
 ## Purpose of a DBMS
-1. Data Storage and Retrieval: Simplifying the storage and retrieval of data.
-2. Data Manipulation: Allowing users to modify data using commands like SQL.
-3. Data Security: Enforcing security policies to protect sensitive data.
-4. Data Integrity: Maintaining data accuracy and consistency.
-5. Backup and Recovery: Providing tools to backup data and recover it in case of a failure.
-6. Concurrency Control: Managing simultaneous data access by multiple users.
+1. **Data Storage and Retrieval**: Simplifying the storage and retrieval of data.
+2. **Data Manipulation**: Allowing users to modify data using commands like SQL.
+3. **Data Security**: Enforcing security policies to protect sensitive data.
+4. **Data Integrity**: Maintaining data accuracy and consistency.
+5. **Backup and Recovery**: Providing tools to backup data and recover it in case of a failure.
+6. **Concurrency Control**: Managing simultaneous data access by multiple users.
 
 ## Types of Database Management Systems (DBMS) and Their Suitable Uses
 1. **Hierarchical DBMS**
@@ -49,16 +49,19 @@ A Database Management System (DBMS) is software that interacts with the user, ap
 5. **NoSQL DBMS**
 
 - **Types**:
-    - Document Stores: Store data in document format (e.g., JSON).
+    - **Document Stores**: Store data in document format (e.g., JSON).
         - Suitable for: Content management, web applications.
         - Example: MongoDB.
-    - Key-Value Stores: Store data as key-value pairs.
+
+    - **Key-Value Stores**: Store data as key-value pairs.
         - Suitable for: Caching, session management.
         - Example: Redis.
-    - Column-Family Stores: Store data in columns instead of rows.
+
+    - **Column-Family Stores**: Store data in columns instead of rows.
         - Suitable for: Big data and analytical applications.
         - Example: Apache Cassandra.
-    - Graph Databases: Store data as nodes and edges.
+
+    - **Graph Databases**: Store data as nodes and edges.
         - Suitable for: Social networks, fraud detection.
         - Example: Neo4j.
 
